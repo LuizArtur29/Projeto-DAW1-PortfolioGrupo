@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio — Mateus</title>
+    <link rel="stylesheet" href="css/Portfolio.css" />
+    <meta name="description" content="Portfólio de Mateus — IFPB. Competências: Java, Spring Framework, PostgreSQL." />
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="site">
+    <div class="inner">
+        <a href="index.html" style="font-weight: bold; font-size: 1.2em;">
+            Portfólio Duplo
+        </a>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="portfolio-mateus.html">Portfólio Mateus</a>
+            <a href="portfolio-luiz.html" class="active">Portfólio Luiz</a> <a href="informacoes.html">Informações</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Profile / Hero -->
+    <section class="hero profile card">
+        <img src="img/mateus-hero.png" alt="Foto/Avatar de Mateus" />
+        <div>
+            <h1>Mateus <span class="badge">IFPB — ADS</span></h1>
+            <p class="subtle">Estudante de Análise e Desenvolvimento de Sistemas • Competências: <strong>Java</strong>, <strong>Spring Framework</strong>, <strong>PostgreSQL</strong></p>
+            <div class="chipbar" role="toolbar" aria-label="Filtros de projetos">
+                <button class="chip" data-filter="all" aria-pressed="false">Todos</button>
+                <button class="chip" data-filter="java" aria-pressed="false">Java</button>
+                <button class="chip" data-filter="spring" aria-pressed="false">Spring</button>
+                <button class="chip" data-filter="frontend" aria-pressed="false">Frontend</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section aria-labelledby="projects-title" class="card">
+        <header class="section-title">
+            <h2 id="projects-title">Projetos em Destaque</h2>
+            <small>3 itens</small>
+        </header>
+
+        <div class="projects-grid">
+            <!-- Project 1: RPG -->
+            <article class="project-card" data-tags="java backend">
+                <img src="img/mateus-1.png" alt="Capa do projeto RPG (Java)" />
+                <div class="content">
+                    <h3>RPG — Projeto em Java</h3>
+                    <p>Jogo de RPG em Java com foco em OO. Código aberto e versionado no GitHub.</p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">POO</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="https://github.com/MateusVirginio/RPG" target="_blank" rel="noopener">Ver no GitHub</a>
+                </div>
+            </article>
+
+            <!-- Project 2: API Catálogo -->
+            <article class="project-card" data-tags="spring java backend">
+                <img src="img/mateus-2.png" alt="Capa do projeto API Catálogo Spring Boot" />
+                <div class="content">
+                    <h3>API de Catálogo</h3>
+                    <p>API REST em <strong>Spring Boot</strong> com persistência <strong>PostgreSQL</strong> e boas práticas.</p>
+                    <div class="tags">
+                        <span class="tag">Spring</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="#" target="_blank" rel="noopener">Repositório (em breve)</a>
+                </div>
+            </article>
+
+            <!-- Project 3: Landing Page -->
+            <article class="project-card" data-tags="frontend">
+                <img src="img/mateus-3.png" alt="Capa do projeto Landing Page HTML/CSS/JS" />
+                <div class="content">
+                    <h3>Landing Page Portfólio</h3>
+                    <p>Landing responsiva com <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong> puro (DOM).</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site">
+    <div class="inner">
+        <span>&copy; 2025 - Mateus & Luiz</span>
+        <a href="https://github.com/LuizArtur29/Projeto-DAW1-Portfolio" target="_blank">Ver no GitHub</a>
+    </div>
+</footer>
+
+<div id="site-footer"></div>
+
+<script src="js/header.js" defer></script>
+<script src="js/footer.js" defer></script>
+<script src="js/portfolio-mateus.js" defer></script>
+</body>
+</html>

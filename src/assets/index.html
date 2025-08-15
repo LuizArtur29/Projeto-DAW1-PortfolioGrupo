@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Duplo - Início</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="portfolio-mateus.html">Portfólio Mateus</a>
+        <a href="portfolio-luiz.html">Portfólio Luiz</a>
+        <a href="informacoes.html">Informações</a>
+    </nav>
+</header>
+<main>
+    <section id="apresentacao">
+        <h1>Projeto Portfólio Duplo</h1>
+        <p>Este site foi desenvolvido para a disciplina de Desenvolvimento de Aplicações Web, utilizando HTML, CSS e JavaScript (DOM)[cite: 4, 6, 9].</p>
+        <div class="navegacao-perfis">
+            <a href="portfolio-mateus.html" class="btn">Portfólio - Mateus</a>
+            <a href="portfolio-luiz.html" class="btn">Portfólio - Luiz</a>
+        </div>
+    </section>
+
+    <section id="comentarios">
+        <h2>Deixe seu Comentário</h2>
+        <form id="comment-form">
+            <div class="form-group">
+                <label for="author">Nome:</label>
+                <input type="text" id="author" required>
+            </div>
+            <div class="form-group">
+                <label for="text">Comentário:</label>
+                <textarea id="text" rows="3" required></textarea>
+            </div>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+        <h3>Comentários</h3>
+        <div id="comments-list">
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Desenvolvido por Mateus & Luiz para a disciplina de Desenvolvimento de Aplicações Web.</p>
+    <p>
+        <a href="https://github.com/MateusVirginio" target="_blank">GitHub Mateus</a> |
+        <a href="https://github.com/LuizArtur29" target="_blank">GitHub Luiz</a>
+    </p>
+</footer>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/comments.js"></script>
+</body>
+</html>
