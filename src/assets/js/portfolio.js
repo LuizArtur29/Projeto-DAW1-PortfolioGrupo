@@ -1,38 +1,51 @@
 /**
- * portfolio.js — filtros simples por tecnologia usando data-tags
- * - Clique nos botões de filtro para exibir/ocultar cards por tag
- * - Barras de progresso para "nível" animadas on-load
+ * portfolio-filter.js — Filtra os cards de projeto com base em data-tags.
+ * - Adiciona listeners aos botões .chip[data-filter].
+ * - Mostra/oculta os .project-card que possuem a tag correspondente em data-tags.
  */
 document.addEventListener("DOMContentLoaded", () => {
-    const filters = document.querySelectorAll("[data-filter]");
-    const cards = document.querySelectorAll(".project");
-    const bars = document.querySelectorAll(".progress > span");
+    // Seleciona todos os botões de filtro e os cards de projeto
+    const filterChips = document.querySelectorAll(".chip[data-filter]");
+    const projectCards = document.querySelectorAll(".project-card");
 
-    function applyFilters(){
-        const active = [...filters].filter(b => b.getAttribute("aria-pressed") === "true").map(b => b.dataset.filter);
-        if(active.length === 0){
-            cards.forEach(c => c.hidden = false);
-            return;
-        }
-        cards.forEach(card => {
-            const tags = (card.dataset.tags || "").split(",").map(s=>s.trim());
-            card.hidden = !active.every(tag => tags.includes(tag));
+    // Se não houver filtros na página, o script não precisa rodar.
+    if (filterChips.length === 0) {
+        return;
+    }
+
+    // Função que aplica o filtro com base no botão ativo
+    function applyFilter(activeFilter) {
+        projectCards.forEach(card => {
+            const cardTags = card.dataset.tags || ""; // Pega as tags do card
+
+            // O card será visível se o filtro for "all" ou se suas tags incluírem o filtro ativo.
+            const shouldBeVisible = activeFilter === "all" || cardTags.includes(activeFilter);
+
+            card.style.display = shouldBeVisible ? "" : "none";
         });
     }
 
-    filters.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const pressed = btn.getAttribute("aria-pressed") === "true";
-            btn.setAttribute("aria-pressed", String(!pressed));
-            applyFilters();
+    // Adiciona o evento de clique a cada botão de filtro
+    filterChips.forEach(chip => {
+        chip.addEventListener("click", () => {
+            // Remove o estado "pressionado" de todos os botões
+            filterChips.forEach(c => c.setAttribute("aria-pressed", "false"));
+
+            // Ativa o estado "pressionado" apenas no botão clicado
+            chip.setAttribute("aria-pressed", "true");
+
+            // Pega o valor do filtro a ser aplicado
+            const activeFilter = chip.dataset.filter;
+
+            applyFilter(activeFilter);
         });
     });
 
-    // animate progress bars
-    bars.forEach(b => {
-        const v = Number(b.dataset.value || "0");
-        requestAnimationFrame(() => {
-            b.style.width = Math.max(0, Math.min(100, v)) + "%";
-        });
-    });
+    // --- Inicialização ---
+    // Ativa o filtro "Todos" por padrão ao carregar a página.
+    const allFilterButton = document.querySelector('.chip[data-filter="all"]');
+    if (allFilterButton) {
+        allFilterButton.setAttribute("aria-pressed", "true");
+        applyFilter("all");
+    }
 });
