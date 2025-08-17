@@ -1,0 +1,412 @@
+/* --- Variáveis Globais e Reset --- */
+:root {
+    --bg: #0f1115;
+    --panel: #151923;
+    --brand: #8ab4f8;
+    --text: #e6e6e6;
+    --muted: #a9b2c3;
+    --border: #232838;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+}
+
+/* --- Componentes Reutilizáveis --- */
+.container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 24px auto;
+    padding: 0 24px;
+    display: grid;
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.subtle {
+    color: var(--muted);
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: #1f2637;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    vertical-align: middle;
+}
+
+/* --- Header e Footer --- */
+header.site {
+    background-color: rgba(15, 17, 21, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 8px 0; /* Diminuímos o padding vertical para um visual mais slim */
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Estilo do título/logo do site */
+.site-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text);
+    text-decoration: none;
+}
+.site-title:hover {
+    text-decoration: none; /* Garante que não apareça sublinhado */
+}
+
+/* Navegação principal */
+header.site nav {
+    display: flex;
+    gap: 8px; /* Espaço entre os links */
+}
+
+header.site nav a {
+    color: var(--muted);
+    font-weight: 600;
+    padding: 8px 14px; /* Aumenta a área clicável, criando um "botão" */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Efeito ao passar o mouse: um fundo sutil e texto mais claro */
+header.site nav a:hover {
+    background-color: #1f2637;
+    color: var(--text);
+}
+
+/* Estilo do link ATIVO, indicando a página atual */
+header.site nav a.active {
+    background-color: var(--brand);
+    color: #0b1020; /* Texto escuro para contrastar com o fundo azul */
+}
+
+
+/* --- Footer Aprimorado --- */
+footer.site {
+    position: static; /* Remove o sticky do footer se houver */
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+    margin-top: 48px;
+    padding: 16px 0;
+    background-color: #101218; /* Um fundo um pouco diferente */
+}
+
+footer.site .inner {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Link do footer estilizado como um botão discreto */
+.footer-link {
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: #1f2637;
+    transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--text);
+    border-color: #3b445e;
+    background-color: #2a3146;
+    text-decoration: none;
+}
+
+
+/* --- Seção Hero Profile --- */
+.hero.profile {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.hero.profile img {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.hero.profile h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.hero.profile p {
+    margin: 8px 0 0 0;
+    max-width: 60ch; /* Limita a largura do parágrafo para melhor legibilidade */
+}
+
+.chipbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.chip {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background-color: #131a2a;
+    color: var(--muted);
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.chip:hover {
+    background-color: #1f2637;
+    color: var(--text);
+}
+
+/* Estilo do filtro ativo */
+.chip[aria-pressed="true"] {
+    background-color: var(--brand);
+    color: #0b1020;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+/* --- Seção de Projetos --- */
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.section-title small {
+    color: var(--muted);
+}
+
+.projects-grid {
+    display: grid;
+    /* Grid responsivo: colunas com no mínimo 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    background: #11131a; /* Um pouco mais escuro que o painel principal */
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden; /* Garante que a imagem não vaze */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporção da imagem */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-card .content {
+    padding: 16px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+}
+
+.project-card h3 {
+    margin: 0 0 8px 0;
+}
+
+.project-card p {
+    margin: 0 0 16px 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: #1e2536;
+    border: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.project-card .actions {
+    padding: 0 16px 16px 16px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #1f2637;
+    text-decoration: none;
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .hero.profile {
+        grid-template-columns: 1fr; /* Coluna única para o hero */
+        text-align: center;
+    }
+
+    .hero.profile img {
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+
+    .chipbar {
+        justify-content: center; /* Centraliza os filtros */
+    }
+}
+
+/* --- Estilos para a Página de Informações --- */
+
+.info-grid {
+    display: grid;
+    /* Em telas maiores, cria duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr;
+    gap: 24px; /* Espaço entre as colunas */
+    margin-top: 24px;
+}
+
+.info-section {
+    margin-bottom: 24px; /* Espaço entre as seções (Formação, Experiência, etc.) */
+}
+
+.info-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: var(--brand); /* Usa a cor de destaque para os subtítulos */
+    border-bottom: 1px solid var(--border); /* Linha sutil para separar */
+    padding-bottom: 8px;
+}
+
+.info-section p, .info-section ul {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.info-section ul {
+    padding-left: 20px;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os badges quebrem a linha */
+    gap: 8px; /* Espaço entre os badges */
+}
+
+
+/* --- Responsividade para a Página de Informações --- */
+@media (max-width: 768px) {
+    .info-grid {
+        /* Em telas menores, as colunas viram linhas */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Ajustes no Título da Seção de Projetos --- */
+
+.section-title {
+    /* Garante que o display flex que já tínhamos continue funcionando */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Novo container para alinhar a contagem e o botão */
+.title-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Espaço entre a contagem e o botão */
+}
+
+/* Estilo para um botão menor, mais adequado para o header */
+.btn.btn-small {
+    padding: 6px 14px;
+    font-size: 14px;
+}
+
+/* --- Estilo para o Botão de Voltar --- */
+
+.hero .back-button {
+    /* Faz o botão não ocupar a largura toda */
+    display: inline-block;
+    width: auto;
+
+    /* Adiciona um espaço acima dele */
+    margin-top: 16px;
+
+    /* Estilo mais discreto que o botão primário */
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.hero .back-button:hover {
+    background-color: #1f2637;
+    color: var(--text);
+}

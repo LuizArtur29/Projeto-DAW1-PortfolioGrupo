@@ -1,10 +1,10 @@
 :root{
     --bg:#0f1115;
-    --panel:#151923;
+    --panel: #52669a;
     --brand:#8ab4f8;
     --text:#e6e6e6;
     --muted:#a9b2c3;
-    --border:#232838;
+    --border: #384275;
 }
 
 *{box-sizing:border-box}

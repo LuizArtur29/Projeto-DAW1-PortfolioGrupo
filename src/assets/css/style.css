@@ -1,77 +1,341 @@
-/* Paleta de Cores e Fontes */
+/* --- Variáveis Globais e Reset --- */
+/* Definimos uma paleta de cores para manter a consistência em todo o site */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --background-color: #ecf0f1;
-    --text-color: #333;
-    --card-bg-color: #ffffff;
-    --font-main: 'Arial', sans-serif;
+    --bg: #0f1115;
+    --panel: #151923;
+    --brand: #8ab4f8; /* Um azul suave para destaque */
+    --text: #e6e6e6;
+    --muted: #a9b2c3; /* Para textos secundários */
+    --border: #232838;
 }
 
-body {
-    font-family: var(--font-main);
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Reset básico para um comportamento mais previsível dos elementos */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
-    padding-top: 60px; /* Espaço para o header fixo */
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
 }
 
-/* Header Fixo [cite: 44] */
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    text-align: center;
-}
-header nav a {
-    color: white;
+/* --- Estilos de Links e Container Principal --- */
+a {
+    color: var(--brand);
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    transition: filter 0.2s ease;
 }
 
-main {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
+a:hover {
+    filter: brightness(1.2);
+    text-decoration: underline;
 }
 
-footer {
+.container {
+    width: 100%;
+    max-width: 1080px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 24px; /* Espaçamento lateral */
+}
+
+
+/* --- Header --- */
+header {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    background-color: rgba(15, 17, 21, 0.8); /* Fundo semi-transparente */
+    backdrop-filter: blur(8px); /* Efeito de vidro fosco */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: center; /* Centraliza os links de navegação */
+    align-items: center;
+    gap: 24px; /* Espaço entre os links */
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+header nav a {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+
+
+/* --- Seção de Introdução (Hero) --- */
+#introducao {
+    padding: 80px 0;
     text-align: center;
-    padding: 20px;
-    background-color: var(--primary-color);
-    color: white;
 }
 
-/* Estilos para Cards [cite: 46] */
-.card {
-    background-color: var(--card-bg-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+.hero h1 {
+    font-size: 42px;
+    margin: 0 0 16px 0;
+    background: linear-gradient(90deg, var(--brand), #c7d5ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Estilos para Comentários (Mateus pode refinar) */
-.comment-item {
-    border-left: 4px solid var(--secondary-color);
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #fff;
+.hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
 }
-.comment-actions button { margin-right: 10px; }
 
-/* Estilos para Badges/Tags de Habilidades [cite: 24] */
-.badge {
+
+/* --- Seção de Perfis --- */
+#perfis {
+    padding: 80px 0;
+    background-color: #101218; /* Um tom ligeiramente diferente para separar a seção */
+    border-top: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--brand);
+    border-radius: 2px;
+    margin: 12px auto 0;
+}
+
+.perfis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 24px;
+}
+
+.card-perfil {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    align-items: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-perfil:hover {
+    transform: translateY(-8px); /* Efeito de levantar o card */
+    box-shadow: 0 8px 30px rgba(138, 180, 248, 0.1); /* Brilho sutil na cor da marca */
+}
+
+.perfil-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Imagem redonda */
+    object-fit: cover;
+    border: 2px solid var(--border);
+}
+
+.perfil-info h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: var(--text);
+}
+
+.perfil-info .subtle {
+    color: var(--muted);
+    margin: 0 0 16px 0;
+}
+
+/* Botão Primário */
+.btn.primary {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 5px 10px;
+    padding: 10px 16px;
     border-radius: 12px;
-    font-size: 0.9em;
-    margin: 2px;
+    background: var(--brand);
+    color: #0b1020; /* Texto escuro para contrastar com o fundo azul */
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn.primary:hover {
+    text-decoration: none;
+    filter: brightness(1.1);
+}
+
+
+/* --- Footer --- */
+footer {
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+
+/* --- Responsividade --- */
+/* Para tablets e telas menores */
+@media (max-width: 768px) {
+    .perfis-grid {
+        grid-template-columns: 1fr; /* Uma coluna para os perfis */
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 480px) {
+    .card-perfil {
+        grid-template-columns: 1fr; /* Imagem acima do texto */
+        text-align: center;
+    }
+
+    .perfil-img {
+        justify-self: center; /* Centraliza a imagem no grid */
+    }
+
+    header nav {
+        gap: 16px;
+    }
+}
+
+#comentarios {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+}
+
+/* Formulário de Comentários */
+#comment-form {
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 48px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--muted);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: #111624; /* Um fundo um pouco mais escuro para os inputs */
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite que o usuário redimensione a altura */
+    min-height: 100px;
+}
+
+#comment-form button {
+    width: fit-content; /* O botão terá a largura do seu conteúdo */
+    justify-self: end; /* Alinha o botão à direita */
+}
+
+/* Lista de Comentários */
+.comment-list {
+    display: grid;
+    gap: 16px;
+}
+
+.comment-item {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.comment-header strong {
+    color: var(--text);
+    font-size: 16px;
+}
+
+.comment-item p {
+    margin: 0 0 16px 0;
+    white-space: pre-wrap; /* Preserva as quebras de linha do comentário */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.comment-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.comment-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background-color: #1f2637;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.comment-actions button:hover {
+    background-color: #2a3146;
+    color: var(--text);
+}
+
+/* Estado vazio da lista de comentários */
+.empty-list-message {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px;
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    background-color: rgba(15, 17, 21, 0.5);
 }
