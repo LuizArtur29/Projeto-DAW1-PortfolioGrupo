@@ -1,8 +1,3 @@
-/**
- * portfolio-filter.js — Filtra os cards de projeto com base em data-tags.
- * - Adiciona listeners aos botões .chip[data-filter].
- * - Mostra/oculta os .project-card que possuem a tag correspondente em data-tags.
- */
 document.addEventListener("DOMContentLoaded", () => {
     // Seleciona todos os botões de filtro e os cards de projeto
     const filterChips = document.querySelectorAll(".chip[data-filter]");

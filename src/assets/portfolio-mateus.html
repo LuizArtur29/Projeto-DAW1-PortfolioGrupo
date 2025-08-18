@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfólio — Mateus</title>
     <link rel="stylesheet" href="css/MeuPortfolio.css" />
-    <meta name="description" content="Portfólio de Mateus — IFPB. Competências: Java, Spring Boot, PostgreSQL, HTML, CSS." />
+    <meta name="description" content="Portfólio de Mateus — IFPB. Competências: Java, Spring Boot, PostgreSQL, Docker." />
 </head>
 <body>
-<div id="site-header"></div>
 
 <header class="site">
     <div class="inner">
@@ -22,10 +21,10 @@
 
 <main class="container">
     <section class="hero profile card">
-        <img src="img/mateus-hero.png" alt="Foto/Avatar de Mateus" />
+        <img src="img/mateus-icon.JPG" alt="Foto/Avatar de Mateus" />
         <div>
-            <h1>Luiz <span class="badge">IFPB — ADS</span></h1>
-            <p class="subtle">Estudante de Análise e Desenvolvimento de Sistemas • Competências: <strong>Java</strong>, <strong>Spring Framework</strong>, <strong>PostgreSQL</strong></p>
+            <h1>Mateus Virginio <span class="badge">IFPB — ADS</span></h1>
+            <p class="subtle">Estudante de Análise e Desenvolvimento de Sistemas • Competências: <strong>Java</strong>, <strong>Spring</strong>, <strong>PostgreSQL</strong>, <strong>Docker</strong></p>
             <div class="chipbar" role="toolbar" aria-label="Filtros de projetos">
                 <button class="chip" data-filter="all" aria-pressed="false">Todos</button>
                 <button class="chip" data-filter="java" aria-pressed="false">Java</button>
@@ -35,18 +34,16 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projetos -->
     <section aria-labelledby="projects-title" class="card">
         <header class="section-title">
             <h2 id="projects-title">Projetos em Destaque</h2>
-            <small>3 itens</small>
             <a href="projetos-todos-mateus.html" class="btn btn-small">Ver Todos</a>
         </header>
 
         <div class="projects-grid">
-            <!-- Project 1: RPG -->
             <article class="project-card" data-tags="java backend">
-                <img src="img/mateus-1.png" alt="Capa do projeto RPG (Java)" />
+                <img src="img/rpg2d.png" alt="Capa do projeto RPG (Java)" />
                 <div class="content">
                     <h3>RPG — Projeto em Java</h3>
                     <p>Jogo de RPG em Java com foco em OO. Código aberto e versionado no GitHub.</p>
@@ -61,29 +58,30 @@
                 </div>
             </article>
 
-            <!-- Project 2: API Catálogo -->
-            <article class="project-card" data-tags="spring java backend">
-                <img src="img/mateus-2.png" alt="Capa do projeto API Catálogo Spring Boot" />
+            <article class="project-card" data-tags="spring java frontend">
+                <img src="img/ingresso.png" alt="Sistema Ingresso" />
                 <div class="content">
-                    <h3>API de Catálogo</h3>
-                    <p>API REST em <strong>Spring Boot</strong> com persistência <strong>PostgreSQL</strong> e boas práticas.</p>
+                    <h3>Sistema de Ingressos Para um Cinema</h3>
+                    <p>CRUD em <strong>Spring Boot</strong> com persistência <strong>PostgreSQL</strong> boas práticas e Front-End em desenvolvimento.</p>
                     <div class="tags">
                         <span class="tag">Spring</span>
                         <span class="tag">Java</span>
                         <span class="tag">PostgreSQL</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
                 <div class="actions">
-                    <a class="btn" href="#" target="_blank" rel="noopener">Repositório (em breve)</a>
+                    <a class="btn" href="https://github.com/LuizArtur29/Reserva-Cinema" target="_blank" rel="noopener">Ver no GitHub</a>
                 </div>
             </article>
 
-            <!-- Project 3: Landing Page -->
             <article class="project-card" data-tags="frontend">
-                <img src="img/mateus-3.png" alt="Capa do projeto Landing Page HTML/CSS/JS" />
+                <img src="img/portfolio.png" alt="Capa do projeto Landing Page HTML/CSS/JS" />
                 <div class="content">
-                    <h3>Landing Page Portfólio</h3>
-                    <p>Landing responsiva com <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong> puro (DOM).</p>
+                    <h3>Site para Portfólio</h3>
+                    <p>Site com <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong> puro (DOM).</p>
                     <div class="tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
@@ -91,7 +89,7 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+                    <a class="btn" href="https://github.com/LuizArtur29/Projeto-DAW1-PortfolioGrupo" target="_blank" rel="noopener">Ver no GitHub</a>
                 </div>
             </article>
         </div>
