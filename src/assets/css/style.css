@@ -1,5 +1,4 @@
 /* --- Variáveis Globais e Reset --- */
-/* Definimos uma paleta de cores para manter a consistência em todo o site */
 :root {
     --bg: #0f1115;
     --panel: #151923;
@@ -9,7 +8,6 @@
     --border: #232838;
 }
 
-/* Reset básico para um comportamento mais previsível dos elementos */
 * {
     box-sizing: border-box;
 }
@@ -37,9 +35,9 @@ a:hover {
 
 .container {
     width: 100%;
-    max-width: 1080px; /* Largura máxima do conteúdo */
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 24px; /* Espaçamento lateral */
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 
@@ -48,8 +46,8 @@ header {
     width: 100%;
     padding: 16px 0;
     border-bottom: 1px solid var(--border);
-    background-color: rgba(15, 17, 21, 0.8); /* Fundo semi-transparente */
-    backdrop-filter: blur(8px); /* Efeito de vidro fosco */
+    background-color: rgba(15, 17, 21, 0.8);
+    backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -57,9 +55,9 @@ header {
 
 header nav {
     display: flex;
-    justify-content: center; /* Centraliza os links de navegação */
+    justify-content: center; /
     align-items: center;
-    gap: 24px; /* Espaço entre os links */
+    gap: 24px;
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 24px;
@@ -103,7 +101,7 @@ header nav a:hover {
 /* --- Seção de Perfis --- */
 #perfis {
     padding: 80px 0;
-    background-color: #101218; /* Um tom ligeiramente diferente para separar a seção */
+    background-color: #101218;
     border-top: 1px solid var(--border);
 }
 
@@ -145,14 +143,14 @@ header nav a:hover {
 }
 
 .card-perfil:hover {
-    transform: translateY(-8px); /* Efeito de levantar o card */
-    box-shadow: 0 8px 30px rgba(138, 180, 248, 0.1); /* Brilho sutil na cor da marca */
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(138, 180, 248, 0.1);
 }
 
 .perfil-img {
     width: 100px;
     height: 100px;
-    border-radius: 50%; /* Imagem redonda */
+    border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--border);
 }
@@ -175,7 +173,7 @@ header nav a:hover {
     padding: 10px 16px;
     border-radius: 12px;
     background: var(--brand);
-    color: #0b1020; /* Texto escuro para contrastar com o fundo azul */
+    color: #0b1020;
     font-weight: 600;
     text-align: center;
 }
@@ -201,10 +199,9 @@ footer p {
 
 
 /* --- Responsividade --- */
-/* Para tablets e telas menores */
 @media (max-width: 768px) {
     .perfis-grid {
-        grid-template-columns: 1fr; /* Uma coluna para os perfis */
+        grid-template-columns: 1fr;
     }
 
     .hero h1 {
@@ -212,15 +209,14 @@ footer p {
     }
 }
 
-/* Para celulares */
 @media (max-width: 480px) {
     .card-perfil {
-        grid-template-columns: 1fr; /* Imagem acima do texto */
+        grid-template-columns: 1fr;
         text-align: center;
     }
 
     .perfil-img {
-        justify-self: center; /* Centraliza a imagem no grid */
+        justify-self: center;
     }
 
     header nav {
@@ -254,7 +250,7 @@ footer p {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    background: #111624; /* Um fundo um pouco mais escuro para os inputs */
+    background: #111624;
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -264,13 +260,13 @@ footer p {
 }
 
 .form-group textarea {
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    resize: vertical;
     min-height: 100px;
 }
 
 #comment-form button {
-    width: fit-content; /* O botão terá a largura do seu conteúdo */
-    justify-self: end; /* Alinha o botão à direita */
+    width: fit-content;
+    justify-self: end;
 }
 
 /* Lista de Comentários */
@@ -302,8 +298,8 @@ footer p {
 
 .comment-item p {
     margin: 0 0 16px 0;
-    white-space: pre-wrap; /* Preserva as quebras de linha do comentário */
-    word-wrap: break-word; /* Quebra palavras longas */
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .comment-actions {
